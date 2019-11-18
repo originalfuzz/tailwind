@@ -1,0 +1,12 @@
+/*
+  As we start to extra common components out of tailwind html we'll put them
+  individually here. Anything that needs to change specifically for a page
+  should go in stylesheets/context. For instance if we need a special button
+  color on the login page, then we should override the .btn component in
+  context-specific file such as context/login.scss with the class name from
+  that page (e.g .login .btn)
+
+  Base styles that are shared across the entire site should go in application.scss
+  (e.g. this will be for things like a, h1, h2, h3, p, etc. Setting custom defaults
+  like base fonts and link colors.)
+*/
