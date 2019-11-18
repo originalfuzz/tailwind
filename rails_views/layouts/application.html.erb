@@ -1,0 +1,45 @@
+# Simple layout for starting a new tailwind grid in rails
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Predict</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+    <header class="container mx-auto px-4 pt-4">
+      <%= render "shared/navbar" %>
+    </header>
+
+    <main class="container mx-auto my-6 px-4 leading-normal">
+      <%= render "shared/flash" %>
+
+      <%= yield %>
+    </main>
+
+    <footer class="container mx-auto pt-4 px-4">
+      <p>
+        <% if signed_in? %>
+          Signed in as: <%= current_user.email %>
+          <%= button_to "Sign out", sign_out_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", sign_in_path %>
+        <% end %>
+      </p>
+
+      <% if Rails.env.development? %>
+        <ul>
+          <li><%= link_to "Development Link 1", "#" %></li>
+          <li><%= link_to "Development Link 2", "#" %></li>
+          <li><%= link_to "Development Link 3", "#" %></li>
+        </ul>
+      <% end %>
+    </footer>
+  </body>
+</html>
